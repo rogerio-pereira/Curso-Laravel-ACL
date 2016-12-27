@@ -7,7 +7,10 @@
                 <h1>{{$post->title}}</h1>
                 <p>{{$post->description}}</p>
                 <strong>Autor:</strong> {{$post->user->name}}<br/>
-                <a href='{{url("post/$post->id/update")}}'>Editar</a>
+
+                @can('edit_post', $post)
+                    <a href='{{url("post/$post->id/update")}}'>Editar</a>
+                @endcan
                 <hr>
             @endcan
         @empty

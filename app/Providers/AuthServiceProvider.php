@@ -41,5 +41,11 @@ class AuthServiceProvider extends ServiceProvider
                 return $user->hasPermission($permission);
             });
         }
+
+        //Verifica antes de tudo
+        $gate->before(function (User $user, $ability){
+            if($user->hasAnyRoles('Administrador'))
+                return true;
+        });
     }
 }
