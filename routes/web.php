@@ -20,3 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/post/{id}/update', 'HomeController@update');
+
+
+Route::get('/roles-permissions', 'HomeController@rolesPermissions');
