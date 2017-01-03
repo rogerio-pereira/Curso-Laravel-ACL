@@ -33,12 +33,19 @@
                     <h1>Usuários</h1>
                 </a>
             </li>
-            <li class="col-md-2 text-center">
-                <a href="/painel/posts">
+            @can('view_post')
+                <li class="col-md-2 text-center">
+                    <a href="/painel/posts">
+                        <img src="{{url('assets/painel/imgs/noticias-acl.png')}}" alt="Estilos" class="img-menu">
+                        <h1>Posts</h1>
+                    </a>
+                </li>
+            @else
+                {{--<li class="col-md-2 text-center">
                     <img src="{{url('assets/painel/imgs/noticias-acl.png')}}" alt="Estilos" class="img-menu">
-                    <h1>Posts</h1>
-                </a>
-            </li>
+                    <h1>Não Permitido</h1>
+                </li>--}}
+            @endcan
             <li class="col-md-2 text-center">
                 <a href="/painel/roles">
                     <img src="{{url('assets/painel/imgs/funcao-acl.png')}}" alt="Albuns" class="img-menu">

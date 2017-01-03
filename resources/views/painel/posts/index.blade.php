@@ -29,26 +29,28 @@
                 <th width="100px">Ações</th>
             </tr>
 
-            @forelse($posts as $post)
-                <tr>
-                    <td>{{$post->title}}</td>
-                    <td>{{$post->description}}</td>
-                    <td>
-                        <a href="{{url('/painel/post/$post->id/edit')}}" class="edit">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </a>
-                        <a href="{{url('/painel/post/$post->id/delete')}}" class="delete">
-                            <i class="fa fa-trash"></i>
-                        </a>
-                    </td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan='3'>
-                        <p>Nenhum resultado</p>
-                    </td>
-                </tr>
-            @endforelse
+            {{--@can('view_post')--}}
+                @forelse($posts as $post)
+                    <tr>
+                        <td>{{$post->title}}</td>
+                        <td>{{$post->description}}</td>
+                        <td>
+                            <a href="{{url('/painel/post/$post->id/edit')}}" class="edit">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </a>
+                            <a href="{{url('/painel/post/$post->id/delete')}}" class="delete">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan='3'>
+                            <p>Nenhum resultado</p>
+                        </td>
+                    </tr>
+                @endforelse
+            {{--@endcan--}}
         </table>
     </div>
 @endsection
